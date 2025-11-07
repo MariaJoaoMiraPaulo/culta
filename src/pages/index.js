@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import LayoutWrapper from '../components/layouts/LayoutWrapper';
 import HomeLayout from '../components/layouts/HomeLayout';
 import { graphql } from 'gatsby';
@@ -10,8 +10,8 @@ import { SEO } from '../components/SEO';
 import metadata from '../data/metadata';
 
 const HomePage = React.memo(({ data }) => {
-  const images = getImagesMappedByName(data.allImageSharp.edges);
-  const bannerImagesArray = getArrayOfBannerImages(data.allFile.edges);
+  const images = getImagesMappedByName(data.images.edges);
+  const bannerImagesArray = getArrayOfBannerImages(data.bannerImages.edges);
   const currentBannerImage =
     bannerImagesArray[Math.floor(Math.random() * bannerImagesArray.length)];
 
@@ -40,32 +40,26 @@ export default HomePage;
 
 export const query = graphql`
   query MyQuery {
-    allImageSharp(
-      filter: {
-        fluid: {
-          originalName: { in: ["proud.jpg", "bannerAbout.jpg", "1.jpg"] }
-        }
-      }
-    ) {
-      edges {
-        node {
-          id
-          gatsbyImageData
-          fluid {
-            originalName
-          }
-        }
-      }
-    }
-    allFile(filter: { sourceInstanceName: { eq: "bannerImages" } }) {
+    images: allFile(filter: { name: { in: ["proud", "bannerAbout", "1"] } }) {
       edges {
         node {
           id
           childImageSharp {
-            gatsbyImageData
-            fluid {
-              originalName
-            }
+            gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP])
+          }
+          name
+        }
+      }
+    }
+
+    bannerImages: allFile(
+      filter: { sourceInstanceName: { eq: "bannerImages" } }
+    ) {
+      edges {
+        node {
+          id
+          childImageSharp {
+            gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP])
           }
         }
       }

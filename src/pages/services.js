@@ -7,7 +7,7 @@ import { SEO } from '../components/SEO';
 import metadata from '../data/metadata';
 
 const ServicesPage = ({ data }) => {
-  const images = getImagesMappedByName(data.allImageSharp.edges);
+  const images = getImagesMappedByName(data.allFile.edges);
 
   return (
     <>
@@ -26,18 +26,14 @@ const ServicesPage = ({ data }) => {
 export default ServicesPage;
 
 export const query = graphql`
-  query MyQuery {
-    allImageSharp(
-      filter: {
-        fluid: { originalName: { in: ["natureza.jpg", "services.jpg"] } }
-      }
-    ) {
+  query ServicesPageQuery {
+    allFile(filter: { name: { in: ["natureza", "services"] } }) {
       edges {
         node {
           id
-          gatsbyImageData
-          fluid {
-            originalName
+          name
+          childImageSharp {
+            gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP])
           }
         }
       }

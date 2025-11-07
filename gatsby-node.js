@@ -9,7 +9,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // BLOG POSTS
   const blogQueryResult = await graphql(`
     query BlogPostsQuery {
-      allContentfulBlogPost(sort: { fields: createdAt, order: DESC }) {
+      allContentfulBlogPost(sort: { createdAt: DESC }) {
         edges {
           node {
             id
@@ -47,9 +47,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // GALLERY
   const galleryQueryResult = await graphql(`
     query MyQuery {
-      allContentfulGalleryPhoto(
-        sort: { fields: photo___createdAt, order: DESC }
-      ) {
+      allContentfulGalleryPhoto(sort: { photo: { createdAt: DESC } }) {
         edges {
           node {
             id
@@ -89,7 +87,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // PORTFOLIO PROJECTS
   const portfolioQueryResult = await graphql(`
     query PortfolioProjectsQuery {
-      allContentfulPortfolioProject(sort: { fields: createdAt, order: DESC }) {
+      allContentfulPortfolioProject(sort: { createdAt: DESC }) {
         edges {
           node {
             id

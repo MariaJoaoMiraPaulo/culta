@@ -54,7 +54,7 @@ export default PortfolioPage;
 export const query = graphql`
   query PortfolioProjectsQuery($limit: Int!, $skip: Int!) {
     allContentfulPortfolioProject(
-      sort: { fields: createdAt, order: DESC }
+      sort: { createdAt: DESC }
       limit: $limit
       skip: $skip
     ) {

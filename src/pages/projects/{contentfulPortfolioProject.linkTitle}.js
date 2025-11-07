@@ -110,7 +110,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulPortfolioProject(sort: { fields: createdAt, order: DESC }) {
+    allContentfulPortfolioProject(sort: { createdAt: DESC }) {
       edges {
         node {
           id

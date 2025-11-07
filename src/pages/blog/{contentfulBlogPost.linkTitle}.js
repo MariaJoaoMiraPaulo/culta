@@ -97,7 +97,7 @@ export const query = graphql`
         }
       }
     }
-    allContentfulBlogPost(sort: { fields: createdAt, order: DESC }) {
+    allContentfulBlogPost(sort: { createdAt: DESC }) {
       edges {
         node {
           id

@@ -52,7 +52,7 @@ export default BlogPage;
 export const query = graphql`
   query BlogPostsQuery($limit: Int!, $skip: Int!) {
     allContentfulBlogPost(
-      sort: { fields: createdAt, order: DESC }
+      sort: { createdAt: DESC }
       limit: $limit
       skip: $skip
     ) {

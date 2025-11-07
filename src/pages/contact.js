@@ -7,7 +7,9 @@ import { SEO } from '../components/SEO';
 import metadata from '../data/metadata';
 
 const ContactPage = ({ data }) => {
-  const images = getImagesMappedByName(data.allImageSharp.edges);
+  console.log(data);
+
+  const images = getImagesMappedByName(data.allFile.edges);
 
   return (
     <>
@@ -15,7 +17,7 @@ const ContactPage = ({ data }) => {
         title={metadata.contacts.title}
         description={metadata.contacts.description}
         pathname="contacts"
-        imagePath={images['pilares.jpg'].images.fallback.src}
+        imagePath={images['pilares.jpg']}
       />
       <LayoutWrapper color="red">
         <ContactLayout images={images} />
@@ -27,16 +29,14 @@ const ContactPage = ({ data }) => {
 export default ContactPage;
 
 export const query = graphql`
-  query MyQuery {
-    allImageSharp(
-      filter: { fluid: { originalName: { in: ["pilares.jpg"] } } }
-    ) {
+  query ContactPageQuery {
+    allFile(filter: { name: { in: ["pilares"] } }) {
       edges {
         node {
           id
-          gatsbyImageData
-          fluid {
-            originalName
+          name
+          childImageSharp {
+            gatsbyImageData(placeholder: BLURRED, formats: [AUTO, WEBP])
           }
         }
       }
