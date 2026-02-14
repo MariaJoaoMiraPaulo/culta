@@ -1,31 +1,33 @@
 const services = [
   {
-    name: 'Consultoria de Comunicação',
+    name: 'Estratégia e Gestão',
     description:
-      'Apoio e orientação estratégica: objectivos, identidade, posicionamento, tom de voz, canais de comunicação, tipologia de conteúdos. Formação.',
+      'Diagnóstico, Pensamento Estratégico, Modelos de Sustentabilidade e Desenvolvimento de Projectos.',
   },
   {
-    name: 'Assessoria de Comunicação',
+    name: 'Produção Cultural',
     description:
-      'Planos de Comunicação Online e Offline, Assessoria de Imprensa, Gestão de Redes Sociais.',
+      'Programação e Produção cultural. Planeamento operacional e Concretização de iniciativas.',
   },
   {
-    name: 'Produção de Conteúdos',
-    description: 'Texto, Vídeo, Fotografia, Multimédia.',
-  },
-  {
-    name: 'Gestão e Produção',
+    name: 'Mecenato e Parcerias',
     description:
-      'Gestão de projectos de comunicação, Produção Cultural, Activação Cultural.',
+      ' Identificação e Angariação de Mecenas, Gestão de Parceiros e Activação de Marca.',
   },
   {
-    name: 'Design',
-    description: 'Design Editorial, Gráfico, Digital, Web.',
-  },
-  {
-    name: 'Branding',
+    name: 'Comunicação',
     description:
-      'Identidade visual e conceptual, Logotipo e Assinatura, Manual de Identidade.',
+      'Consultoria, Estratégia global, Assessoria de Imprensa, Gestão de Redes Sociais, Gestão de canais online e offline.',
+  },
+  {
+    name: 'Copywriting e Conteúdos',
+    description:
+      ' Storytelling. Narrativas em Texto, Vídeo, Fotografia, Animação e suportes Multimédia.',
+  },
+  {
+    name: 'Design e Branding',
+    description:
+      ' Identidade Visual e Conceptual, Design Editorial, Gráfico e Digital.',
   },
 ];
 
