@@ -65,7 +65,6 @@ const ServicesLayout = ({ t, images }) => {
       <ImageTextSection
         color="marble"
         background="blue"
-        body={t('services.body')}
         image={images['services.jpg']}
         imageAlt={t('services.services')}
         padding="0"
